@@ -1,0 +1,17 @@
+# Railway configuration
+# For deploying the backend service
+
+[build]
+builder = "heroku/buildpacks:20"
+
+[build.args]
+# No specific args needed for Python FastAPI app
+
+[http]
+port = 8000
+
+[health]
+path = "/health"
+
+[environment]
+PORT = { from = "port", default = 8000 }
